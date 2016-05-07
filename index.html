@@ -1,38 +1,23 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+---
+layout: default
+---
 
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+<div class="home">
 
-    <title>Our Blog</title>
-  </head>
+  <h1 class="page-heading">Posts</h1>
 
-  <body>
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
 
-    <header>
-      <div class="container">
-        <h1></h1>
-        <h2></h2>
-      </div>
-    </header>
+        <h2>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </h2>
+      </li>
+    {% endfor %}
+  </ul>
 
-    <div class="container">
-      <section id="main_content">
-        <h3>
-          <a id="welcome-to-the-ethereum-blog" class="anchor" href="#welcome-to-the-ethereum-blog" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>
-          Welcome to the Blog
-        </h3>
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 
-          <p>We're figuring it out</p>
-
-        <p><a href="eth1.html">Post one:</a></p>
-      </section>
-    </div>
-
-    
-  </body>
-</html>
+</div>
